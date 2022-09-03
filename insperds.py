@@ -3,14 +3,15 @@ import random
 import string
 
 def ddgquery(query):
-    URL = "https://api.duckduckgo.com/?format=json&pretty=0&q=" + query
+    URL = "https://duckduckgo.com/?q="+query+"&format=json&pretty=1"
     response = requests.get(URL)
     ddg = response.json()
+    #ddg = requests.get("https://duckduckgo.com/?q="+query+"&format=json&pretty=1").json()
     info = ddg["Abstract"]
     if len(info) > 1:
         return info
     else:
-    	return "Ops! No data found!" 
+        return "Ops! No data found!" 
 
 def bitcoins():
     URL="https://www.mercadobitcoin.net/api/BTC/trades/"
